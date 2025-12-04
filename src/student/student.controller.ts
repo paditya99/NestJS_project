@@ -1,0 +1,39 @@
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { StudentService } from './student.service';
+import { Student } from './student.schema';
+
+@Controller('student')
+export class StudentController {
+    constructor(private readonly studentService: StudentService){}
+
+    @Post()
+    async createStudent(@Body() data: Partial<Student>){
+        return this.studentService.createStudent(data);
+    }
+
+    @Get()
+    async getAllStudents(){
+        return this.studentService.getAllStudents();
+    }
+
+    @Get(':id')
+    async getStudent(@Param('id') id: string){
+        return this.studentService.getStudent(id);
+    }
+
+    @Put(':id')
+    async putStudent(@Param('id') id: string, @Body() data: Partial<Student>){
+        return this.studentService.putStudent(id, data);
+    }
+
+    @Patch(':id')
+    async patchStudent(@Param('id') id: string, @Body() data: Partial<Student>){
+        return this.studentService.patchStudent(id, data);
+    }
+
+    @Delete(':id')
+    async deleteStudent(@Param('id') id: string){
+        return this.studentService.deleteStudent(id);
+    }
+
+}
