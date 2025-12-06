@@ -15,6 +15,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { StudentModule } from './student/student.module';
 import { UserModule } from './user/user.module';
 import { EmployeeModule } from './employee/employee.module';
+import { ProductModule as OneToManyProductModule } from './one-to-many/product/product.module';
+import { LibraryModule } from './library/library.module';
+import { ProjectModule } from './project/project.module';
 
 
 
@@ -25,7 +28,10 @@ import { EmployeeModule } from './employee/employee.module';
   MongooseModule.forRoot(process.env.MONGO_URI!),
   StudentModule,
   UserModule,
-  EmployeeModule
+  EmployeeModule,
+  OneToManyProductModule,
+  LibraryModule,
+  ProjectModule
 ],
   controllers: [AppController, ProductController, UserRolesController, ExceptionFilterController, EnvController],
   providers: [AppService, ProductService, EnvService],

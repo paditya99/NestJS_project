@@ -16,12 +16,10 @@ export class EmployeeService {
             salary: 20000,
             degree: 'MCA'
         })
-
         const employee=new this.employeeModel({
             name: 'Aditya',
             profile: profile._id
         })
-
         return employee.save();
     }
 
